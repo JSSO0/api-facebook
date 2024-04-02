@@ -4,6 +4,8 @@ Api for receive webhooks for Facebook Mensseger
 ![alt text](image.png)
 # Modelo do Banco
 ![alt text](image-1.png)
+# Caminho da mensagem na API
+![alt text](image-2.png)
 
 # Query usada para gerar as tabelas do Banco
 
