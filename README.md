@@ -31,3 +31,118 @@ CREATE TABLE Sender (
     id_sender_webhook VARCHAR(255),
     mensages_send UUID REFERENCES Message(id)
 );
+
+
+#INFOS:
+
+{
+"data": [
+{
+"access_token": "EAAH0hV9SFyIBOwcPh07NCSAMf2fNxGewUbsZBBNVr3oFLEZA66C3V6OF8Q44L7apdq6TA3LXQfhy2W0ckigTAJV3BnGUMyansJMZANyQcvlGDyTCToeWR6DndrjpQbccpDHZBuseChlmRTg0ZCgWBH9ZAVwkW1l9jtbEcdErPYVt49wBgUpNZADcCIlSjjX6jmWVnLgxDbHRp9OmpOrV0vn1j9fN5j3smFK",
+"category": "Ciência e tecnologia",
+"category_list": [
+{
+"id": "673445767199285",
+"name": "Ciência e tecnologia"
+}
+],
+"name": "Teste botinho",
+"id": "300107813175496",
+"tasks": [
+"ADVERTISE",
+"ANALYZE",
+"CREATE_CONTENT",
+"MESSAGING",
+"MODERATE",
+"MANAGE"
+]
+},
+{
+"access_token": "EAAH0hV9SFyIBO7ZBkxOZCvYSkEpdPeHaJrBUnQrL92PvMQOLHxiDUHDqWk5IKz3rMCFs1bDa5U48tpXraS9jKlghIS3HZCaUpds9noG2ZB0rhp1QZCSnYNhP98PgIuOJ3FJLyy0Pfxx0T1sNquFfV03CSJPDU5REZAsTdIQNdjekmiGtUvMnBjcjZClmd3MaMteXJ8oWiqLnUB4zbIb9LIZAyTDZBPHDwhgGc",
+"category": "Empresa de software",
+"category_list": [
+{
+"id": "1065597503495311",
+"name": "Empresa de software"
+}
+],
+"name": "Ubots",
+"id": "772171386292669",
+"tasks": [
+"ADVERTISE",
+"ANALYZE",
+"CREATE_CONTENT",
+"MESSAGING",
+"MODERATE",
+"MANAGE"
+]
+}
+],
+"paging": {
+"cursors": {
+"before": "QVFIUkFfVlA2VE5nUHdKc09XUlJKNzd0ZAWNvYTJnTTdxSWVQWFBfU3p5eHY2WnVKRW9wWm5Bb2lIS00zWnhrSUN1d0QzaDA2ZAzdOa1ZA6UmpyQU1mckpfcnB3",
+"after": "QVFIUjFGVTR1Sm85cnc0bVQ5U1JneGREN2pfd2lpeXhrMDRERWJsTTRid0ZA2azRZAV2N5NWxsVE9NbGxlWFlMaXVkanZAnUkcyOFNuRm13ZAWNxMVhLSnh3RjBn"
+}
+}
+}
+
+curl -i -X GET \
+"https://graph.facebook.com/v19.0/me/accounts?access_token=EAAH0hV9SFyIBO9Rf31Q1z0AaDvo0YnJsd9KIx2ZB6x9EKEJMpokbxIeXEhhZCIwNa2NNr10IJUgCCe4uZCZAtEBWziCskKliXoJAyKSbZCZBZAnZBXs9bdV7OhXwt1N5SqML4VabMwxxYWUNVBLznb21cPwK1ywqZAoNxnwAx4owh9eoXWaYzwsLZCYCwvgLm2BChcNouAl37J0AQMN9Cnjd9hO2DwqgZDZD"
+
+{
+"name": "Joely Silva",
+"id": "137949749238014"
+}
+curl -i -X GET \
+"https://graph.facebook.com/v19.0/me?fields=name%2Cid&access_token=EAAH0hV9SFyIBO9Rf31Q1z0AaDvo0YnJsd9KIx2ZB6x9EKEJMpokbxIeXEhhZCIwNa2NNr10IJUgCCe4uZCZAtEBWziCskKliXoJAyKSbZCZBZAnZBXs9bdV7OhXwt1N5SqML4VabMwxxYWUNVBLznb21cPwK1ywqZAoNxnwAx4owh9eoXWaYzwsLZCYCwvgLm2BChcNouAl37J0AQMN9Cnjd9hO2DwqgZDZD"
+
+{
+"data": [
+{
+"participants": {
+"data": [
+{
+"name": "Joely Silva",
+"email": "7612696888751001@facebook.com",
+"id": "7612696888751001"
+},
+{
+"name": "Teste botinho",
+"email": "300107813175496@facebook.com",
+"id": "300107813175496"
+}
+]
+},
+"messages": {
+"data": [
+{
+"id": "m_TwuhFxQHNyaGSKwePZAKmCfA9H70pPrG3z_MeRPmDw4jehyMs0eW1cRJgdzE75JRjUHcqylHEkQe52iZnWhP4Q",
+"message": "eae chefe"
+}
+],
+"paging": {
+"cursors": {
+"before": "QVFIUmowLTl4RkFQOXhzV1UxNnJjUjJtNXQ0bHJSaXdfWXNERm10a3gxR29hVmFkdl9zeHVVUTRTSlRaVzdaRmFmb3dkd1ZAWT2RkYXE2anBkVWx0TERoS0ZAmVEZALTldmTzJHNjZAEM1AxTE9pUlBaTm03UjJxbUpKTlE2LTREUDJlbjRG",
+"after": "QVFIUmowLTl4RkFQOXhzV1UxNnJjUjJtNXQ0bHJSaXdfWXNERm10a3gxR29hVmFkdl9zeHVVUTRTSlRaVzdaRmFmb3dkd1ZAWT2RkYXE2anBkVWx0TERoS0ZAmVEZALTldmTzJHNjZAEM1AxTE9pUlBaTm03UjJxbUpKTlE2LTREUDJlbjRG"
+}
+}
+},
+"id": "t_366180373081616"
+}
+],
+"paging": {
+"cursors": {
+"before": "QVFIUjJOa1NWdm9CU0NxcnZAPNW5TVUotX3NUTDJuY3I4VDhHc0w4X3F6b0hyS3BJdXdqVmNsZAkZArTTYycGNVc3RmX2lFSXdjQ1FQMGVOMWhjSnlXUUZADaGx1Nzk4WTl6cldmZA3hNNU1yNkpjc210blJyNlBRMGpIQnZAEZAE9GNW5DZAkQx",
+"after": "QVFIUjJOa1NWdm9CU0NxcnZAPNW5TVUotX3NUTDJuY3I4VDhHc0w4X3F6b0hyS3BJdXdqVmNsZAkZArTTYycGNVc3RmX2lFSXdjQ1FQMGVOMWhjSnlXUUZADaGx1Nzk4WTl6cldmZA3hNNU1yNkpjc210blJyNlBRMGpIQnZAEZAE9GNW5DZAkQx"
+}
+}
+}
+curl -i -X GET \
+"https://graph.facebook.com/v19.0/300107813175496/conversations?fields=participants%2Cmessages%7Bid%2Cmessage%7D&access_token=EAAGEWHmp5oABO2PkwDkZBmU80LwByhLp3DXZByZBSl4X54PTUpgB5irZBYHjb0Uw6Y38yxi22gsayEZB2ZAZCyGI0IuRl83CBtG1a2gyZCZBvvwhelYLCnAUWr9DKWdWjS6ANaDzyEzobXRlozPTwZAu88bfDZBgDdWmWCXyOEG7QcnwaCRazIGPIH5G7pEt5QJLZCFdTjlqlayRAR881gcQ0XjD3EyfeBycdBAs"
+
+{
+"recipient_id": "7612696888751001",
+"message_id": "m_8juDru7sB_YbxeqEwFVxBifA9H70pPrG3z_MeRPmDw5BRlpLhwZpoEeZh0-nPOPGKhAWR8en3PaTRj4CtzzNig"
+}
+curl -i -X POST \
+"https://graph.facebook.com/v19.0/me/messages?recipient=%7Bid%3A7612696888751001%7D&mesaging_type=RESPONSE&message=%7B%22text%22%3A%22opa%22%7D&access_token=EAAGEWHmp5oABO2PkwDkZBmU80LwByhLp3DXZByZBSl4X54PTUpgB5irZBYHjb0Uw6Y38yxi22gsayEZB2ZAZCyGI0IuRl83CBtG1a2gyZCZBvvwhelYLCnAUWr9DKWdWjS6ANaDzyEzobXRlozPTwZAu88bfDZBgDdWmWCXyOEG7QcnwaCRazIGPIH5G7pEt5QJLZCFdTjlqlayRAR881gcQ0XjD3EyfeBycdBAs"
