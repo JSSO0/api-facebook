@@ -1,20 +1,14 @@
 package com.api.mensagefacebook.validation;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 @Component
-public class WebhookValidation {
+public class JsonValidator {
 
-    private static final String MY_VERIFY_TOKEN = "EAAGEWHmp5oABO1XcZBjFLAcLixW9QTEZCS31rjZAQghKQCwZAfZCThLhkKNt880h4qIxJJtJmeYgojGyfah52yteFKZCPyZAh4SEx27oqiLmTAUCBZCwQoDN01eEnXgNsiUOikBU9VZBqUxzw7aGUxxxs6i0ySPv2pIcwy4VpiOGWEtV2cWbJjNH7ymvffpFy1kD2jFGVExKL78s2bk8e7AmZCzIKGvwZDZD";
-
-    public boolean validate(String verifyToken) {
-        return "subscribe".equals(verifyToken) && MY_VERIFY_TOKEN.equals(verifyToken);
-    }
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     public boolean isValid(String json) {
