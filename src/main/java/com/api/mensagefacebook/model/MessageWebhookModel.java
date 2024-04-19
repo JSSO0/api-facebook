@@ -8,7 +8,6 @@ public class MessageWebhookModel {
     private String object;
     private List<EntryModel> entry;
 
-    // getters and setters
     public String getObject() {
         return object;
     }

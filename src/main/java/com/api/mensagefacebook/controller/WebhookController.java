@@ -2,6 +2,9 @@ package com.api.mensagefacebook.controller;
 
 import com.api.mensagefacebook.model.MessageWebhookModel;
 import com.api.mensagefacebook.service.WebhookService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
@@ -27,8 +30,15 @@ public class WebhookController {
 
     @PostMapping("/webhookfacebook")
     public ResponseEntity<String> handleWebhook(@RequestBody MessageWebhookModel request) {
-        System.out.println("Controller");
-        webhookService.handleWebhook(request);
-        return ResponseEntity.status(HttpStatus.OK).body("EVENT_RECEIVED");
+        System.out.println("01 Controller");
+        try {
+            webhookService.handleWebhookService(request);
+            return ResponseEntity.status(HttpStatus.OK).body("EVENT_RECEIVED");
+        } catch (Exception e) {
+            System.out.println(e);
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("ERROR_TO_SEND_MESSAGE" + e);
+        }
+
+
     }
 }
