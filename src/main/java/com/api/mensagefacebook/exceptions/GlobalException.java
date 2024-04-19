@@ -14,10 +14,34 @@ public class GlobalException {
 
     @ExceptionHandler(ExceptionsPersonalized.ControllerException.class)
     public ResponseEntity<String> handleControllerException(ExceptionsPersonalized.ControllerException e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("01 - Erro no Controller, Class handleWebhook: "+ e);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("01 - Erro no handleWebhook: "+ e);
     }
     @ExceptionHandler(ExceptionsPersonalized.ServiceException.class)
     public ResponseEntity<String> handleServiceException(ExceptionsPersonalized.ServiceException e) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("02 - Erro no Service, Class handleWebhookService: "+ e);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("02 - Erro no handleWebhookService: "+ e);
+    }
+
+    @ExceptionHandler(ExceptionsPersonalized.VerifyMessageException.class)
+    public ResponseEntity<String> handleVerifyMessage(ExceptionsPersonalized.VerifyMessageException e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("03 - Erro no VerifyMessage: "+ e);
+    }
+
+    @ExceptionHandler(ExceptionsPersonalized.GetMessageException.class)
+    public ResponseEntity<String> handleGetMessageException(ExceptionsPersonalized.GetMessageException e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("04 - Erro no GetMessage: "+ e);
+    }
+
+    @ExceptionHandler(ExceptionsPersonalized.SendMessageException.class)
+    public ResponseEntity<String> handleSendMessageException(ExceptionsPersonalized.SendMessageException e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("05 - Erro no SendMessage: "+ e);
+    }
+
+    @ExceptionHandler(ExceptionsPersonalized.SendRequestException.class)
+    public ResponseEntity<String> handleSendRequestException(ExceptionsPersonalized.SendRequestException e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("06 - Erro no SendRequest: "+ e);
+    }
+    @ExceptionHandler(ExceptionsPersonalized.GetUrlException.class)
+    public ResponseEntity<String> handleGetUrlException(ExceptionsPersonalized.GetUrlException e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("07 - Erro no GetUrl: "+ e);
     }
 }

@@ -44,3 +44,7 @@ Api for receive webhooks for Facebook Mensseger
  "recipient_id": "{{RECIPIENT_ID}}",
  "message_id": "m_8juDru7sB_YbxeqEwFVxBifA9H70pPrG3z_MeRPmDw5BRlpLhwZpoEeZh0-nPOPGKhAWR8en3PaTRj4CtzzNig"
  }
+
+# Docker
+    docker pull JSSO0/api-facebook
+    docker run -d -p 8080:8080 JSSO0/api-facebook

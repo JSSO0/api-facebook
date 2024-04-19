@@ -1,5 +1,6 @@
 package com.api.mensagefacebook.controller;
 
+import com.api.mensagefacebook.exceptions.ExceptionsPersonalized;
 import com.api.mensagefacebook.model.MessageWebhookModel;
 import com.api.mensagefacebook.service.WebhookService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,16 +30,9 @@ public class WebhookController {
     }
 
     @PostMapping("/webhookfacebook")
-    public ResponseEntity<String> handleWebhook(@RequestBody MessageWebhookModel request) {
+    public ResponseEntity<String> handleWebhook(@RequestBody MessageWebhookModel request) throws ExceptionsPersonalized.ControllerException {
         System.out.println("01 Controller");
-        try {
-            webhookService.handleWebhookService(request);
-            return ResponseEntity.status(HttpStatus.OK).body("EVENT_RECEIVED");
-        } catch (Exception e) {
-            System.out.println(e);
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body("ERROR_TO_SEND_MESSAGE" + e);
-        }
-
-
+        webhookService.handleWebhookService(request);
+        return ResponseEntity.status(HttpStatus.OK).body("EVENT_RECEIVED");
     }
 }

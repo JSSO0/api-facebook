@@ -1,5 +1,6 @@
 package com.api.mensagefacebook.service;
 
+import com.api.mensagefacebook.exceptions.ExceptionsPersonalized;
 import com.api.mensagefacebook.message.MessageWebhook;
 import com.api.mensagefacebook.message.SendMessageWebhook;
 import com.api.mensagefacebook.model.MessageWebhookModel;
@@ -25,19 +26,12 @@ public class WebhookService {
         return ResponseEntity.status(HttpStatus.OK).body(challenge);
     }
 
-    public void handleWebhookService(@NotNull MessageWebhookModel request) {
-        System.out.println("02 - HandleWebhook: " + request);
-
+    public void handleWebhookService(@NotNull MessageWebhookModel request) throws ExceptionsPersonalized.ServiceException {
         String recipientId = request.getEntry().get(0).getMessaging().get(0).getSender().getId();
-        System.out.println("02 - RecipientId: \n" + recipientId);
-
         MessageVerifier messageVerifier = new MessageVerifier();
         String receivedMessage = messageVerifier
                 .verifyMessage(request.getEntry().get(0).getMessaging().get(0).getMessageFacebookUser());
-
-
         String body = messengerMessage.getMessage(recipientId, receivedMessage);
-        System.out.println(body);
         SendMessageWebhook sendMessageWebhook = new SendMessageWebhook(messengerRequestSender);
         sendMessageWebhook.sendMessage(body, recipientId, receivedMessage);
 
