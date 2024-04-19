@@ -24,7 +24,7 @@ public class MessageWebhook {
         String recipient = String.format("\"recipient\":{\"id\":\"%s\"}", recipientId);
         String message = String.format("\"message\":{\"text\":\"%s\"}", messagesresponse.messageText(receivedMessage));
         String messagingType = "\"messaging_type\":\"RESPONSE\"";
-        String accessToken = "\"access_token\":\"EAAGEWHmp5oABO84yWC4Qpu6o5dNaTCwZBKKlebF8x6qptnGexm28mK4Obg4lCHe8Dcia3En2sGv2iPqm8YbVvFdHxK5801uqq51n7IUzjUDJ1hTzxykOi0ufJChKB6T4FmKY1NNb8vRESkApShJZAl9XyZBHFcn4V3dOcKSRuckBtDQO8I0Y8uw1sczRilTHyAFl16ypZAq7m8lyms42h8MjZAICeah7m\"";
+        String accessToken = "\"access_token\":\"EAAGEWHmp5oABOz1oodWGENhgMDJCN62mZB9l2mh5rUzgMhA4IIbJ9ZCXzSKD9iz4PmsMDMXqoZC8tHSrscY2OaLzqPIvgrlJSQoT0OOZB7SDsNZClLzv4zL1Dxe46bFwx0S41tFMJtHnUHvPIouHfmqrCg39iIb33B6zHRfzRhNEcBSXIYzpYJK2M3mvsjAsvwG6Jb6BkxwZDZD\"";
         return String.format("{%s,%s,%s,%s}", recipient, message, messagingType, accessToken);
     }
 
