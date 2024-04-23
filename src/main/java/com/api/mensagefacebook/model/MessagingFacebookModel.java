@@ -7,7 +7,7 @@ public class MessagingFacebookModel {
     private SenderModel sender;
     private RecipientModel recipient;
     private long timestamp;
-    private MessageFacebookModel messageFacebookUser;
+    private MessageFacebookModel message;
 
     // getters and setters
     public SenderModel getSender() {
@@ -34,11 +34,11 @@ public class MessagingFacebookModel {
         this.timestamp = timestamp;
     }
 
-    public MessageFacebookModel getMessageFacebookUser() {
-        return messageFacebookUser;
+    public MessageFacebookModel getMessage() {
+        return message;
     }
 
-    public void setMessageFacebookUser(MessageFacebookModel messageFacebookUser) {
-        this.messageFacebookUser = messageFacebookUser;
+    public void setMessage(MessageFacebookModel message) {
+        this.message = message;
     }
 }

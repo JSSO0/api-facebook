@@ -9,6 +9,9 @@ public class MessagesResponse {
         String response = "";
 
         switch (receivedMessage) {
+            case "Oi":
+                response = "Olá, vamos iniciar seu atendimento\n Qual a sua pergunta?";
+                break;
             case "Qual seu nome?":
                 response = "Joely";
                 break;

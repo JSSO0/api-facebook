@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class EntryModel {
     private long time;
     private String id;
-    private List<MessagingFacebookModel> messagingfacebook;
+    private List<MessagingFacebookModel> messaging;
 
     public long getTime() {
         return time;
@@ -27,10 +27,10 @@ public class EntryModel {
     }
 
     public List<MessagingFacebookModel> getMessaging() {
-        return messagingfacebook;
+        return messaging;
     }
 
-    public void setMessaging(List<MessagingFacebookModel> messagingfacebook) {
-        this.messagingfacebook = messagingfacebook;
+    public void setMessaging(List<MessagingFacebookModel> messaging) {
+        this.messaging = messaging;
     }
 }

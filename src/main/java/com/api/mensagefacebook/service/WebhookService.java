@@ -6,7 +6,7 @@ import com.api.mensagefacebook.message.SendMessageWebhook;
 import com.api.mensagefacebook.model.MessageWebhookModel;
 import com.api.mensagefacebook.restwebhook.MessengerRequestSender;
 
-import com.api.mensagefacebook.validation.MessageVerifier;
+import com.api.mensagefacebook.validation.MessageNullVerifier;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +28,14 @@ public class WebhookService {
 
     public void handleWebhookService(@NotNull MessageWebhookModel request) throws ExceptionsPersonalized.ServiceException {
         String recipientId = request.getEntry().get(0).getMessaging().get(0).getSender().getId();
-        MessageVerifier messageVerifier = new MessageVerifier();
-        String receivedMessage = messageVerifier
-                .verifyMessage(request.getEntry().get(0).getMessaging().get(0).getMessageFacebookUser());
+
+        MessageNullVerifier messageNullVerifier = new MessageNullVerifier();
+
+        String receivedMessage = messageNullVerifier
+                .verifyMessage(request.getEntry().get(0).getMessaging().get(0).getMessage());
+
         String body = messengerMessage.getMessage(recipientId, receivedMessage);
+
         SendMessageWebhook sendMessageWebhook = new SendMessageWebhook(messengerRequestSender);
         sendMessageWebhook.sendMessage(body, recipientId, receivedMessage);
 
