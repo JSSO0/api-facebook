@@ -1,4 +1,4 @@
-package com.api.mensagefacebook.model;
+package com.api.mensagefacebook.api.model;
 
 import java.util.List;
 

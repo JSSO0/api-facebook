@@ -1,6 +1,5 @@
-package com.api.mensagefacebook.model;
+package com.api.mensagefacebook.api.model;
 
-import org.apache.logging.log4j.message.Message;
 import org.springframework.stereotype.Component;
 @Component
 public class MessagingFacebookModel {

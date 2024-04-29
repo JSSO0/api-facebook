@@ -1,4 +1,4 @@
-package com.api.mensagefacebook.exceptions;
+package com.api.mensagefacebook.api.exceptions;
 
 public class ExceptionsPersonalized {
     public static class ControllerException extends RuntimeException {

@@ -1,7 +1,7 @@
-package com.api.mensagefacebook.message;
+package com.api.mensagefacebook.api.message;
 
-import com.api.mensagefacebook.exceptions.ExceptionsPersonalized;
-import com.api.mensagefacebook.restwebhook.MessengerRequestSender;
+import com.api.mensagefacebook.api.exceptions.ExceptionsPersonalized;
+import com.api.mensagefacebook.api.restwebhook.MessengerRequestSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +15,7 @@ public class SendMessageWebhook {
     }
 
     public void sendMessage(String body,String recipientId, String receivedMessage ) throws ExceptionsPersonalized.SendMessageException {
-        String responseEntity = messengerRequestSender.sendRequest(body);
+        String responseEntity = messengerRequestSender.createHeader(body);
         System.out.println("Response from Facebook Messenger: " + responseEntity);
     }
 }

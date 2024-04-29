@@ -1,4 +1,4 @@
-package com.api.mensagefacebook.exceptions;
+package com.api.mensagefacebook.api.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

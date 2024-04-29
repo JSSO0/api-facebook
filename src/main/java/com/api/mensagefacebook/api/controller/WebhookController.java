@@ -1,10 +1,8 @@
-package com.api.mensagefacebook.controller;
+package com.api.mensagefacebook.api.controller;
 
-import com.api.mensagefacebook.exceptions.ExceptionsPersonalized;
-import com.api.mensagefacebook.model.MessageWebhookModel;
-import com.api.mensagefacebook.service.WebhookService;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+import com.api.mensagefacebook.api.exceptions.ExceptionsPersonalized;
+import com.api.mensagefacebook.api.model.MessageWebhookModel;
+import com.api.mensagefacebook.api.service.WebhookService;
 
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +29,7 @@ public class WebhookController {
 
     @PostMapping("/webhookfacebook")
     public ResponseEntity<String> handleWebhook(@RequestBody MessageWebhookModel request) throws ExceptionsPersonalized.ControllerException {
-        ObjectMapper objectMapper = new ObjectMapper();
+     /*   ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
         String requestJson = "";
         try {
@@ -39,9 +37,9 @@ public class WebhookController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("Request received: \n" + requestJson);
+        System.out.println("Request received: \n" + requestJson);*/
 
-        webhookService.handleWebhookService(request);
+        webhookService.WebhookFacebookService(request);
         return ResponseEntity.status(HttpStatus.OK).body("EVENT_RECEIVED");
     }
 }

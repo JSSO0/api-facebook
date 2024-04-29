@@ -1,4 +1,4 @@
-package com.api.mensagefacebook.model;
+package com.api.mensagefacebook.api.model;
 
 public class SenderModel {
     private String id;
