@@ -3,6 +3,7 @@ package com.api.mensagefacebook.bot.validation;
 import java.io.IOException;
 
 import com.api.mensagefacebook.api.model.MessageWebhookModel;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -10,11 +11,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Component
 public class MessageBodyValidator {
-
-    private static final String MY_VERIFY_TOKEN = "EAAGEWHmp5oABO1XcZBjFLAcLixW9QTEZCS31rjZAQghKQCwZAfZCThLhkKNt880h4qIxJJtJmeYgojGyfah52yteFKZCPyZAh4SEx27oqiLmTAUCBZCwQoDN01eEnXgNsiUOikBU9VZBqUxzw7aGUxxxs6i0ySPv2pIcwy4VpiOGWEtV2cWbJjNH7ymvffpFy1kD2jFGVExKL78s2bk8e7AmZCzIKGvwZDZD";
+    @Value("${verifyToken}")
+    private String verifyToken;
 
     public boolean validate(String verifyToken) {
-        return "subscribe".equals(verifyToken) && MY_VERIFY_TOKEN.equals(verifyToken);
+        return "subscribe".equals(verifyToken) && verifyToken.equals(verifyToken);
     }
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
@@ -24,7 +25,6 @@ public class MessageBodyValidator {
             JsonNode jsonObject = objectMapper.readTree(json);
             return hasRequiredFields(jsonObject);
         } catch (IOException e) {
-            // Tratar a exceção de leitura do JSON (lançar exceção ou retornar false)
             e.printStackTrace();
             return false;
         }

@@ -16,9 +16,9 @@ public class WeatherCall {
     }
 
     public String initializeIntegrationWeather(String city) throws IOException {
-        String makeCityName = formatCityName.makeCityName(city);
+        String CityName = formatCityName.makeCityName(city);
 
-        return getWeatherCity.getWeather(makeCityName);
+        return getWeatherCity.getWeather(CityName);
 
     }
 }

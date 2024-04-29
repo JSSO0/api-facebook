@@ -29,16 +29,6 @@ public class WebhookController {
 
     @PostMapping("/webhookfacebook")
     public ResponseEntity<String> handleWebhook(@RequestBody MessageWebhookModel request) throws ExceptionsPersonalized.ControllerException {
-     /*   ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-        String requestJson = "";
-        try {
-            requestJson = objectMapper.writeValueAsString(request);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        System.out.println("Request received: \n" + requestJson);*/
-
         webhookService.WebhookFacebookService(request);
         return ResponseEntity.status(HttpStatus.OK).body("EVENT_RECEIVED");
     }

@@ -46,8 +46,6 @@ public class MessageMatcherResponse {
         } else {
             response = "Desculpe, não entendi a pergunta.";
         }
-
-        System.out.println(response);
         return response;
     }
 

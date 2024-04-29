@@ -46,12 +46,9 @@ public class WebhookService {
 
         try {
             String jsonRequest = objectMapper.writeValueAsString(request);
-            //validação
             if (messageBodyValidator.isValidBodyMessage(jsonRequest)) {
-                //validação do receivedmessage e recipientId
                 String receivedMessage = messageNullValidator.verifyMessageSender(request.getEntry().get(0).getMessaging().get(0).getMessage());
                 String recipientId = messageNullValidator.verifyRecipientIdSender(request.getEntry().get(0).getMessaging().get(0).getSender());
-
                 String body = messengerMessage.createBodyMessage(recipientId, receivedMessage);
                 sendMessageWebhook.sendMessage(body, recipientId, receivedMessage);
             } else {

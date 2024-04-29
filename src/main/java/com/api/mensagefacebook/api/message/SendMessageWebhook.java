@@ -16,6 +16,5 @@ public class SendMessageWebhook {
 
     public void sendMessage(String body,String recipientId, String receivedMessage ) throws ExceptionsPersonalized.SendMessageException {
         String responseEntity = messengerRequestSender.createHeader(body);
-        System.out.println("Response from Facebook Messenger: " + responseEntity);
     }
 }

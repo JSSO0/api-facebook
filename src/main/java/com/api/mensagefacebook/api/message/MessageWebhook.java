@@ -29,6 +29,7 @@ public class MessageWebhook {
         String message = String.format("\"message\":{\"text\":\"%s\"}", messagesresponse.messageMatchers(receivedMessage));
         String messagingType = "\"messaging_type\":\"RESPONSE\"";
         String accessToken = "\"access_token\":\""+token+"\"";
+
         return String.format("{%s,%s,%s,%s}", recipient, message, messagingType, accessToken);
     }
 
