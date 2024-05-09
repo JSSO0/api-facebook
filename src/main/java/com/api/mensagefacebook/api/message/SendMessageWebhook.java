@@ -14,7 +14,9 @@ public class SendMessageWebhook {
         this.messengerRequestSender = messengerRequestSender;
     }
 
-    public void sendMessage(String body,String recipientId, String receivedMessage ) throws ExceptionsPersonalized.SendMessageException {
+    public void sendMessage(String body,String recipientId, String receivedMessage )
+            throws ExceptionsPersonalized.SendMessageException {
+
         String responseEntity = messengerRequestSender.createHeader(body);
     }
 }

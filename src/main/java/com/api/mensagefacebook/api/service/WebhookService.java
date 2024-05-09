@@ -36,7 +36,8 @@ public class WebhookService {
     }
 
 
-    public void WebhookFacebookService(@NotNull MessageWebhookModel request) throws ExceptionsPersonalized.ServiceException {
+    public void WebhookFacebookService(@NotNull MessageWebhookModel request)
+            throws ExceptionsPersonalized.ServiceException {
 
 
         MessageNullValidator messageNullValidator = new MessageNullValidator();
@@ -47,10 +48,15 @@ public class WebhookService {
         try {
             String jsonRequest = objectMapper.writeValueAsString(request);
             if (messageBodyValidator.isValidBodyMessage(jsonRequest)) {
-                String receivedMessage = messageNullValidator.verifyMessageSender(request.getEntry().get(0).getMessaging().get(0).getMessage());
-                String recipientId = messageNullValidator.verifyRecipientIdSender(request.getEntry().get(0).getMessaging().get(0).getSender());
+                String receivedMessage = messageNullValidator.verifyMessageSender(
+                        request.getEntry().get(0).getMessaging().get(0).getMessage());
+
+                String recipientId = messageNullValidator.verifyRecipientIdSender(
+                        request.getEntry().get(0).getMessaging().get(0).getSender());
+
                 String body = messengerMessage.createBodyMessage(recipientId, receivedMessage);
                 sendMessageWebhook.sendMessage(body, recipientId, receivedMessage);
+
             } else {
 
             }

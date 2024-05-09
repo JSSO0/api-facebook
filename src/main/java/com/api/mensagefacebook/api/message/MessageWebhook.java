@@ -18,17 +18,22 @@ public class MessageWebhook {
     private MessageMatcherResponse messagesresponse;
     @Autowired
     private MessengerRequestSender messengerRequestSender;
+
     @Autowired
-    public MessageWebhook(MessageMatcherResponse messagesresponse, MessengerRequestSender messengerrequestsender){
+    public MessageWebhook(MessageMatcherResponse messagesresponse, MessengerRequestSender messengerrequestsender) {
         this.messengerRequestSender = messengerrequestsender;
         this.messagesresponse = messagesresponse;
     }
 
-    public String createBodyMessage(String recipientId, String receivedMessage) throws ExceptionsPersonalized.GetMessageException, IOException {
-        String recipient = String.format("\"recipient\":{\"id\":\"%s\"}", recipientId);
-        String message = String.format("\"message\":{\"text\":\"%s\"}", messagesresponse.messageMatchers(receivedMessage));
+    public String createBodyMessage(String recipientId, String receivedMessage)
+            throws ExceptionsPersonalized.GetMessageException, IOException {
+
+        String recipient = String.format("\"recipient\":{\"id\":\"%s\"}",
+                recipientId);
+        String message = String.format("\"message\":{\"text\":\"%s\"}",
+                messagesresponse.messageMatchers(receivedMessage));
         String messagingType = "\"messaging_type\":\"RESPONSE\"";
-        String accessToken = "\"access_token\":\""+token+"\"";
+        String accessToken = "\"access_token\":\"" + token + "\"";
 
         return String.format("{%s,%s,%s,%s}", recipient, message, messagingType, accessToken);
     }

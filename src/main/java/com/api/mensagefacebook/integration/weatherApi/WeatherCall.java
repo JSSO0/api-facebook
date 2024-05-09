@@ -8,17 +8,14 @@ import java.io.IOException;
 @Component
 public class WeatherCall {
     private final GetWeatherCity getWeatherCity;
-    private final FormatCityName formatCityName;
 
-    public WeatherCall(FormatCityName formatCityName, GetWeatherCity getWeatherCity) {
-        this.formatCityName = formatCityName;
+    public WeatherCall( GetWeatherCity getWeatherCity) {
         this.getWeatherCity = getWeatherCity;
     }
 
-    public String initializeIntegrationWeather(String city) throws IOException {
-        String CityName = formatCityName.makeCityName(city);
+    public String initializeIntegrationWeather(String cityName) throws IOException {
 
-        return getWeatherCity.getWeather(CityName);
+        return getWeatherCity.getWeather(cityName);
 
     }
 }
